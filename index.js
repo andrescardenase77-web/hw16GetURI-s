@@ -1,6 +1,7 @@
 const express = require("express");
 const { createClient } = require("@supabase/supabase-js");
 const supplyRouter = require("./routes/supplyRoutes");
+const patientRouter = require("./routes/patientRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -19,5 +20,6 @@ app.use(express.static("./views"));
 
 app.use(express.json());
 app.use("/", supplyRouter);
+app.use("/", patientRouter);
 
 app.listen(port, () => console.log("Server running on port " + port));
